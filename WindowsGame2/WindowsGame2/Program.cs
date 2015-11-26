@@ -1,0 +1,29 @@
+using System;
+using StalTrans;
+
+namespace WindowsGame2
+{
+#if WINDOWS || XBOX
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        static void Main(string[] args)
+        {
+            Settings set = new Settings();
+            //set.Show();
+
+
+            using (Game1 game = new Game1())
+            {
+                game.Run();
+            }
+            
+        }
+
+
+    }
+#endif
+}
+
