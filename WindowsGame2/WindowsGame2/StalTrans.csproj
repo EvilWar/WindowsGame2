@@ -143,6 +143,11 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
+    <EmbeddedResource Include="Microsoft.Xna.Framework.Game.dll" />
+    <EmbeddedResource Include="Microsoft.Xna.Framework.GamerServices.dll" />
+    <EmbeddedResource Include="Microsoft.Xna.Framework.Graphics.dll" />
+    <EmbeddedResource Include="Microsoft.Xna.Framework.Input.Touch.dll" />
+    <EmbeddedResource Include="Microsoft.Xna.Framework.dll" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -169,6 +174,13 @@
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WindowsGame2Content\WindowsGame2Content.contentproj">
+      <Project>{FF47F70B-A590-4533-97A6-30BFA065EEC4}</Project>
+      <Name>WindowsGame2Content</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

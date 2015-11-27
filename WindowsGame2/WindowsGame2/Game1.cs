@@ -121,7 +121,7 @@ namespace WindowsGame2
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            myModel = Content.Load<Model>("ST\\ST_hi");
+            myModel = Content.Load<Model>("ST_hi");
             
 
             LightDirection = new Vector3(2, -2, -2);
