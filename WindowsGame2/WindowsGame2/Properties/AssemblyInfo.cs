@@ -1,12 +1,13 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WindowsGame2")]
-[assembly: AssemblyProduct("WindowsGame2")]
+[assembly: AssemblyTitle("StalTrans")]
+[assembly: AssemblyProduct("StalTrans ScreenSaver")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
@@ -32,3 +33,5 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 [assembly: AssemblyVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguage("ru")]
+

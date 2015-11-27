@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // checkBox1
+            // label1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(114, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Вращать логотип";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 75);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Разработано в\r\n\"ООО Стальтранс\"\r\n2015";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 217);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(246, 100);
+            this.Controls.Add(this.label1);
             this.Name = "Settings";
             this.Text = "Settings";
             this.ResumeLayout(false);
@@ -57,6 +57,6 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
