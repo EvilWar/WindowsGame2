@@ -49,6 +49,8 @@ namespace WindowsGame2
         Vector3 LightDirection;
         Point old_mouse;
 
+        ContentManager content;
+
         private const int GWL_STYLE = -16;
         private const int WS_CHILD = 1073741824;
         
@@ -57,15 +59,20 @@ namespace WindowsGame2
 
         public Game1()
         {
+            
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
- 
+            content = new ResourceContentManager(Services, Resource1.ResourceManager);
+            //Content.RootDirectory = "Content";
+            //StalTrans.Resource1.ResourceManager.
+            
+            
         }
 
         public Game1(IntPtr parentHwnd)
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            content = new ResourceContentManager(Services, Resource1.ResourceManager);
+            //Content.RootDirectory = "Content";
             this._previewMode = true;
             this._parentHwnd = parentHwnd;
         }
@@ -112,6 +119,7 @@ namespace WindowsGame2
 
         // Set the 3D model to draw.
         Model myModel;
+        //ResourceContentManager
 
         // The aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
@@ -121,7 +129,8 @@ namespace WindowsGame2
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            myModel = Content.Load<Model>("ST_hi");
+            myModel = content.Load<Model>("ST_hi");
+            
             
 
             LightDirection = new Vector3(2, -2, -2);
