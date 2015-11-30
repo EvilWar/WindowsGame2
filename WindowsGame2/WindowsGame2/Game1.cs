@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Input;
 //using Microsoft.Xna.Framework.Net;
 //using Microsoft.Xna.Framework.Storage;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace WindowsGame2
 {
@@ -127,11 +128,24 @@ namespace WindowsGame2
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            try
+            {
+                spriteBatch = new SpriteBatch(GraphicsDevice);
+            }
+            catch (System.IO.FileNotFoundException ex)
+            {
+                MessageBox.Show("SpriteBatch: "+ex.FileName);
+            }
 
-            myModel = content.Load<Model>("ST_hi");
-            
-            
+            try
+            {
+                myModel = content.Load<Model>("ST_hi");
+            }
+            catch (System.IO.FileNotFoundException ex)
+            {
+                MessageBox.Show("Content.Load: "+ex.FileName);
+            }
+
 
             LightDirection = new Vector3(2, -2, -2);
             old_mouse.X = Mouse.GetState().X;
@@ -150,10 +164,10 @@ namespace WindowsGame2
         {
             
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
                 this.Exit();
             
-            if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape))
                 this.Exit();
 
             if (Math.Abs(old_mouse.X - Mouse.GetState().X) > 5 || Math.Abs(old_mouse.Y - Mouse.GetState().Y) > 5)
