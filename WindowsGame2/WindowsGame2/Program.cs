@@ -32,7 +32,7 @@ namespace WindowsGame2
 
                 if (firstArgument == "/c")           // Configuration mode
                 {
-                    // TODO
+                    ShowScreenSaver();
                 }
                 else if (firstArgument == "/p")      // Preview mode
                 {

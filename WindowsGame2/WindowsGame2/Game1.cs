@@ -57,6 +57,7 @@ namespace WindowsGame2
         
         private IntPtr _parentHwnd = new IntPtr(0);
         private bool _previewMode = false;
+        private float modelSize;
 
         public Game1()
         {
@@ -114,13 +115,13 @@ namespace WindowsGame2
                 this.graphics.ApplyChanges();
 
             }
-            
+
+            modelSize = 50.0f * (graphics.GraphicsDevice.DisplayMode.Width/1366);
             base.Initialize();
         }
 
         // Set the 3D model to draw.
         Model myModel;
-        //ResourceContentManager
 
         // The aspect ratio determines how to scale 3d to 2d projection.
         float aspectRatio;
@@ -225,7 +226,7 @@ namespace WindowsGame2
                         effect.LightingEnabled = true;
 
                     effect.World = Matrix.CreateRotationY(modelRotation) * transforms[mesh.ParentBone.Index] 
-                        * Matrix.CreateTranslation(modelPosition) * Matrix.CreateScale(70.0f*aspectRatio);
+                        * Matrix.CreateTranslation(modelPosition) * Matrix.CreateScale(modelSize * aspectRatio);
                  
                     effect.View = Matrix.CreateLookAt(cameraPosition, Vector3.Zero, Vector3.Up);
                         //effect.Projection = Matrix.CreateOrthographic((float)graphics.GraphicsDevice.Viewport.Width,
@@ -238,7 +239,7 @@ namespace WindowsGame2
                     {
                         //effect.EnableDefaultLighting();
                         effect.World = transforms[mesh.ParentBone.Index]
-                            * Matrix.CreateTranslation(modelPosition) * Matrix.CreateScale(70.0f * aspectRatio);
+                            * Matrix.CreateTranslation(modelPosition) * Matrix.CreateScale(modelSize * aspectRatio);
 
                         effect.View = Matrix.CreateLookAt(cameraPosition, Vector3.Zero, Vector3.Up);
                         //effect.Projection = Matrix.CreateOrthographic((float)graphics.GraphicsDevice.Viewport.Width,
