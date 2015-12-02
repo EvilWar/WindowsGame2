@@ -116,7 +116,7 @@ namespace WindowsGame2
 
             }
 
-            modelSize = 50.0f * (graphics.GraphicsDevice.DisplayMode.Width/1366);
+            modelSize = 50.0f * (graphics.PreferredBackBufferWidth / 1366.0f);
             base.Initialize();
         }
 
