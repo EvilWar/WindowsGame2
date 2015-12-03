@@ -32,7 +32,9 @@ namespace WindowsGame2
 
                 if (firstArgument == "/c")           // Configuration mode
                 {
-                    ShowScreenSaver();
+                    Settings SetF = new Settings();
+                    SetF.ShowDialog();
+                    //ShowScreenSaver();
                 }
                 else if (firstArgument == "/p")      // Preview mode
                 {
