@@ -66,7 +66,7 @@ namespace WindowsGame2
             content = new ResourceContentManager(Services, Resource1.ResourceManager);
             //Content.RootDirectory = "Content";
             //StalTrans.Resource1.ResourceManager.
-            _previewMode = true;
+            //_previewMode = true;
 
         }
 
