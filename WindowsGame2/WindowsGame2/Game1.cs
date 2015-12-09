@@ -66,7 +66,7 @@ namespace WindowsGame2
             content = new ResourceContentManager(Services, Resource1.ResourceManager);
             //Content.RootDirectory = "Content";
             //StalTrans.Resource1.ResourceManager.
-            this._previewMode = true;
+            _previewMode = true;
 
         }
 
@@ -75,13 +75,14 @@ namespace WindowsGame2
             graphics = new GraphicsDeviceManager(this);
             content = new ResourceContentManager(Services, Resource1.ResourceManager);
             //Content.RootDirectory = "Content";
-            this._previewMode = true;
-            this._parentHwnd = parentHwnd;
+            _previewMode = true;
+            _parentHwnd = parentHwnd;
+            
         }
 
         protected override void Initialize()
         {
-            if (this._previewMode == false)
+            if (_previewMode == false)
             {
                 graphics.PreferMultiSampling = true;
                 graphics.IsFullScreen = true;
@@ -89,30 +90,30 @@ namespace WindowsGame2
                 //GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
                 //graphics.PreferredBackBufferWidth =
                 //GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-                this.graphics.PreferredBackBufferFormat = this.graphics.GraphicsDevice.DisplayMode.Format;
-                this.graphics.PreferredBackBufferWidth = this.graphics.GraphicsDevice.DisplayMode.Width;
-                this.graphics.PreferredBackBufferHeight = this.graphics.GraphicsDevice.DisplayMode.Height;
+                graphics.PreferredBackBufferFormat = graphics.GraphicsDevice.DisplayMode.Format;
+                graphics.PreferredBackBufferWidth = graphics.GraphicsDevice.DisplayMode.Width;
+                graphics.PreferredBackBufferHeight = graphics.GraphicsDevice.DisplayMode.Height;
                 graphics.IsFullScreen = true;
                 IsMouseVisible = false;
                 graphics.ApplyChanges();
             }
             else
             {
-                this.graphics.IsFullScreen = false;
-                this.IsMouseVisible = true;
+                graphics.IsFullScreen = false;
+                IsMouseVisible = true;
                 //IMPORTANT NOTE: Do not execute the apply changes after the below code or the preview
                 // will not display correctly.
-                
+                graphics.ApplyChanges();
 
-                if (NativeMethods.IsWindowVisible(this._parentHwnd) == true)
+                if (NativeMethods.IsWindowVisible(_parentHwnd) == true)
                 {
                     NativeMethods.RECT wndRect = new NativeMethods.RECT();
-                    NativeMethods.GetClientRect(this._parentHwnd, ref wndRect);
-                    NativeMethods.SetParent(this.Window.Handle, this._parentHwnd);
-                    NativeMethods.SetWindowLong(this.Window.Handle, GWL_STYLE, WS_CHILD);
-                    NativeMethods.MoveWindow(this.Window.Handle, wndRect.left, wndRect.top, wndRect.right, wndRect.bottom, false);
+                    NativeMethods.GetClientRect(_parentHwnd, ref wndRect);
+                    NativeMethods.SetParent(Window.Handle, _parentHwnd);
+                    NativeMethods.SetWindowLong(Window.Handle, GWL_STYLE, WS_CHILD);
+                    NativeMethods.MoveWindow(Window.Handle, wndRect.left, wndRect.top, wndRect.right, wndRect.bottom, true);
                 }
-                this.graphics.ApplyChanges();
+                
 
             }
 
@@ -166,19 +167,19 @@ namespace WindowsGame2
             
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
-                this.Exit();
+                Exit();
             
             if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape))
-                this.Exit();
+                Exit();
 
             if (Math.Abs(old_mouse.X - Mouse.GetState().X) > 5 || Math.Abs(old_mouse.Y - Mouse.GetState().Y) > 5)
-                if (this._previewMode == false)
-                this.Exit();
+                if (_previewMode == false)
+                    Exit();
 
-            if (this._previewMode == true)
+            if (_previewMode == true)
             {
-                if (NativeMethods.IsWindowVisible(this._parentHwnd) == false)
-                    this.Exit();
+                if (NativeMethods.IsWindowVisible(_parentHwnd) == false)
+                    Exit();
             }
 
             modelRotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds * MathHelper.ToRadians(0.05f);
