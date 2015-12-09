@@ -67,6 +67,10 @@ namespace WindowsGame2
             //Content.RootDirectory = "Content";
             //StalTrans.Resource1.ResourceManager.
             //_previewMode = true;
+            System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt", true);
+            file.WriteLine(DateTime.Now.ToString() + " Start without args.");
+
+            file.Close();
 
         }
 
@@ -77,7 +81,12 @@ namespace WindowsGame2
             //Content.RootDirectory = "Content";
             _previewMode = true;
             _parentHwnd = parentHwnd;
-            
+
+            System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt", true);
+            file.WriteLine(DateTime.Now.ToString()+" parentHwnd = "+parentHwnd.ToString());
+
+            file.Close();
+
         }
 
         protected override void Initialize()
@@ -96,6 +105,7 @@ namespace WindowsGame2
                 graphics.IsFullScreen = true;
                 IsMouseVisible = false;
                 graphics.ApplyChanges();
+                modelSize = 50.0f * (graphics.PreferredBackBufferWidth / 1366.0f);
             }
             else
             {
@@ -112,12 +122,13 @@ namespace WindowsGame2
                     NativeMethods.SetParent(Window.Handle, _parentHwnd);
                     NativeMethods.SetWindowLong(Window.Handle, GWL_STYLE, WS_CHILD);
                     NativeMethods.MoveWindow(Window.Handle, wndRect.left, wndRect.top, wndRect.right, wndRect.bottom, true);
+                    modelSize = 50.0f;// * (wndRect.right / 1366.0f);
                 }
                 
 
             }
 
-            modelSize = 50.0f * (graphics.PreferredBackBufferWidth / 1366.0f);
+            
             base.Initialize();
         }
 

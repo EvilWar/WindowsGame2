@@ -14,9 +14,22 @@ namespace WindowsGame2
         {
             //Settings set = new Settings();
             //set.Show();
-                        
+            System.IO.StreamWriter file1 = new System.IO.StreamWriter("c:\\test.txt", true);
+            file1.WriteLine("\n"+DateTime.Now.ToString() + " Start application");
+
+            file1.Close();
             if (args.Length > 0)
             {
+                foreach (string r in args)
+                {
+                System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt", true);
+                file.WriteLine(DateTime.Now.ToString() + " args = \n" + r);
+
+                file.Close();
+
+                }
+         
+
                 string firstArgument = args[0].ToLower().Trim();
                 string secondArgument = null;
 
@@ -50,7 +63,8 @@ namespace WindowsGame2
             }
             else    // No arguments - treat like /c
             {
-                ShowScreenSaver();
+                Settings SetF = new Settings();
+                SetF.ShowDialog();
             }
 
 
