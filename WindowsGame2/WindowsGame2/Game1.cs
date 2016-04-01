@@ -67,10 +67,10 @@ namespace WindowsGame2
             //Content.RootDirectory = "Content";
             //StalTrans.Resource1.ResourceManager.
             //_previewMode = true;
-            System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt", true);
-            file.WriteLine(DateTime.Now.ToString() + " Start without args.");
+            //System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt", true);
+            //file.WriteLine(DateTime.Now.ToString() + " Start without args.");
 
-            file.Close();
+            //file.Close();
 
         }
 
@@ -82,10 +82,10 @@ namespace WindowsGame2
             _previewMode = true;
             _parentHwnd = parentHwnd;
 
-            System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt", true);
-            file.WriteLine(DateTime.Now.ToString()+" parentHwnd = "+parentHwnd.ToString());
+            //System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt", true);
+            //file.WriteLine(DateTime.Now.ToString()+" parentHwnd = "+parentHwnd.ToString());
 
-            file.Close();
+            //file.Close();
 
         }
 
