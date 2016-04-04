@@ -177,10 +177,8 @@ namespace WindowsGame2
         {
             
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == Microsoft.Xna.Framework.Input.ButtonState.Pressed)
-                Exit();
-            
-            if (Keyboard.GetState(PlayerIndex.One).IsKeyDown(Microsoft.Xna.Framework.Input.Keys.Escape))
+
+            if (Keyboard.GetState().GetPressedKeys().Length > 0)
                 Exit();
 
             if (Math.Abs(old_mouse.X - Mouse.GetState().X) > 5 || Math.Abs(old_mouse.Y - Mouse.GetState().Y) > 5)
