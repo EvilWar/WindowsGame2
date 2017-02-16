@@ -196,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\app.manifest" />
+    <None Include="ST_hi.FBX" />
     <None Include="ST_hi.xnb" />
     <None Include="WindowsGame2_TemporaryKey.pfx" />
   </ItemGroup>

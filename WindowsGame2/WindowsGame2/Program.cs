@@ -14,9 +14,22 @@ namespace WindowsGame2
         {
             //Settings set = new Settings();
             //set.Show();
-                        
+            //System.IO.StreamWriter file1 = new System.IO.StreamWriter("c:\\test.txt", true);
+            //file1.WriteLine("\n"+DateTime.Now.ToString() + " Start application");
+
+            //file1.Close();
             if (args.Length > 0)
             {
+                foreach (string r in args)
+                {
+                //System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt", true);
+                //file.WriteLine(DateTime.Now.ToString() + " args = \n" + r);
+
+                //file.Close();
+
+                }
+         
+
                 string firstArgument = args[0].ToLower().Trim();
                 string secondArgument = null;
 
@@ -30,16 +43,18 @@ namespace WindowsGame2
                 else if (args.Length > 1)
                     secondArgument = args[1];
 
-                if (firstArgument == "/c")           // Configuration mode
+                if (firstArgument == "/c" || firstArgument == "/C")           // Configuration mode
                 {
-                    ShowScreenSaver();
+                    Settings SetF = new Settings();
+                    SetF.ShowDialog();
+                    //ShowScreenSaver();
                 }
-                else if (firstArgument == "/p")      // Preview mode
+                else if (firstArgument == "/p" || firstArgument == "/P")      // Preview mode
                 {
                     IntPtr previewWndHandle = new IntPtr(long.Parse(secondArgument));
                     ShowScreenSaver(previewWndHandle);
                 }
-                else if (firstArgument == "/s")      // Full-screen mode
+                else if (firstArgument == "/s" || firstArgument == "/S")      // Full-screen mode
                 {
                     ShowScreenSaver();
                    
@@ -48,7 +63,8 @@ namespace WindowsGame2
             }
             else    // No arguments - treat like /c
             {
-                ShowScreenSaver();
+                Settings SetF = new Settings();
+                SetF.ShowDialog();
             }
 
 
